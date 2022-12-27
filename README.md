@@ -1,5 +1,5 @@
 # BBCode-HTML-Text-Colorizer 
-### *For when you can't bother to color characters individually!*
+### *For when you can't bother to color characters individually*
 
 
 ## Motivation
