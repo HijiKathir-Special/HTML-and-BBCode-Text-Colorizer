@@ -440,11 +440,11 @@ button.place(x=10, y=210)
 button = tk.Button(text="compile code", command=show_answer)
 button.place(x=140, y=210)
 
-#button that adds bold option
+#button that adds italics option
 button = tk.Button(text="italicize text", command=italicize)
 button.place(x=270, y=210)
 
-#button that adds italics option
+#button that adds bold option
 button = tk.Button(text="bold text", command=bold)
 button.place(x=400, y=210)
 
