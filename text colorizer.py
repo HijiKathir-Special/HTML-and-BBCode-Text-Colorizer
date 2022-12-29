@@ -431,7 +431,7 @@ def italicize():
 
 
 #button that prompts the compiling
-button = tk.Button(text="generate and compile " + code + " code", command=show_results)
+button = tk.Button(text="generate and compile " + code + " blurb", command=show_results)
 button.place(x=10, y=210)
 
 #button that adds bold option
