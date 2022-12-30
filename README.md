@@ -76,6 +76,11 @@ All we do from here is assign the colors to our text characters in the desired f
 
 ![](https://i.imgur.com/HYSlhAE.png)
 
+Using this method, we can make a 'rainbow' operation, which uses n=7 and has a set dicitonary of colors to rainbow-ify text as shown below.
+
+![](https://i.imgur.com/UGFRxH8.png)
+
+
 ### How Color Shift Operation Works
 In the case for color shift operations, we use the interpolation between 2 given colors as a base, and then apply this operation for however many colors the user inputs. Colors are inputted as hexcode, converted to RGB form, interpolated, and then converted back to hexcode before being assigned to their respective characters. To learn about hexcode and RGB, [please refer to this link](https://www.pluralsight.com/blog/tutorials/understanding-hexadecimal-colors-simple).
 
@@ -87,7 +92,11 @@ The starting color is `#ff0000` (red) and the ending color is `#0000ff` (blue). 
 
 `#0000ff` → `rgb(0, 0, 255)`
 
-We now interpolate 10 values from `rgb(255, 0, 0)` to `rgb(0, 0, 255)`. This is done individually for each value (r, g, b). Note that we take the floor value to avoid decimals.
+We now interpolate 10 values from `rgb(255, 0, 0)` to `rgb(0, 0, 255)`. This is done individually for each value (r, g, b). Interpolation is linear, and can be modeled (along with adding the interpolated values to a color list) by the equation shown in python below:
+
+$val = A_0+\frac{A_n-A_0}{n-1}$
+
+Note that this is done 3 times, one for each color. In our case, for the color red, we have $A_0=255$, $A_n=0$, and $n=10$.
 
 The result for the interpolation with 10 values (along with their hexcode counterparts) are shown below:
 
@@ -109,9 +118,9 @@ The result for the interpolation with 10 values (along with their hexcode counte
 
 `rgb(28, 0, 226)` → `#1c00e2`
 
-`rgb(0, 0, 255)` → `#ff0000`
+`rgb(0, 0, 255)` → `#0000ff`
 
-All we do from here is assign the colors to our text characters in the desired format. Below are exmaples of how this 10-character interpolation looks with BBCode and HTML.
+All we do from here is assign the colors to our text characters in the desired format. Below are examples of how this 10-character interpolation looks with BBCode and HTML.
 
 ```#BBCode
 [color=#ff0000]0[/color][color=#e2001c]1[/color][color=#c60038]2[/color][color=#aa0055]3[/color][color=#8d0071]4[/color][color=#71008d]5[/color][color=#5500aa]6[/color][color=#3800c6]7[/color][color=#1c00e2]8[/color][color=#0000ff]9[/color]
@@ -127,23 +136,26 @@ By using this two-color operation multiple times for the n user inputs, we can o
 
 ![](https://i.imgur.com/6yQqRzM.png)
 
+As with the alternating operation, we can make a 'rainbow' operation, which uses n=7 and has a set dicitonary of colors to rainbow-ify text as shown below.
+
+![](https://i.imgur.com/NIV9Vba.png)
 
 ## Interaction With Program
 
 All of the inputs are done in the terminal, and tkinter is used to display the results. In the outputted GUI, the desired code is dislpayed, along with a button that displays what the colors of the text looks like. An example of an input is shown below:
 
-*First we input the text we want colorized, and the type of code we want*
+*First we input the text we want colorized, and the type of code we want. I have inputted sample text, and a request for an html output.*
 
-![](https://i.imgur.com/DjY8oVd.png)
+![](https://i.imgur.com/k8hMw0w.png)
 
-*Next, we input the kind of colorization we want (I have selected the multiple-color shift option), as well as the colors we want.*
+*Next, we input the kind of colorization we want (I have selected the multiple-color shift option), as well as the colors we want. By selecting option 3, I've been prompted to enter the number of colors I'd like to phase through, as well as what colors. I've used both hexcodes and color names as shown below.*
 
-![](https://i.imgur.com/UXk1Gno.png)
+![](https://i.imgur.com/DnM8GL1.png)
 
-*A GUI is outputted, where we see the copy-pastable code in a text box, along with a button*
+*A GUI is outputted, where we see the copy-pastable code in a text box, along with a button to generate and compile the text (with other options as well).*
 
-![](https://i.imgur.com/jSsW98d.png)
+![](https://i.imgur.com/sdV8U8M.png)
 
-*Finally, we click the button, and a preview of what the colored text will look like is displayed.*
+*Finally, we click the button, and a preview of what the colored text will look like is displayed. In the image below, the "bold text" button is also clicked, changing the html to now compile to bolded text, additionally.*
 
-![](https://i.imgur.com/1S8dnj1.png)
+![](https://i.imgur.com/9oSfJX2.png)
