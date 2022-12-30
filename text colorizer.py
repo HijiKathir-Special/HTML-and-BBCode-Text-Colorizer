@@ -365,7 +365,7 @@ window.geometry(str(window_width) + "x" + str(window_height))
 
 #message at the top
 msg = tk.Label(text=("your " + code +
-                     " blurb is below! feel free to copy+paste"),
+                     " blurb is below! feel free to copy+paste after clicking the button"),
                bg="white")
 msg.place(x=10, y=10)
 
