@@ -94,9 +94,9 @@ The starting color is `#ff0000` (red) and the ending color is `#0000ff` (blue). 
 
 We now interpolate 10 values from `rgb(255, 0, 0)` to `rgb(0, 0, 255)`. This is done individually for each value (r, g, b). Interpolation is linear, and can be modeled (along with adding the interpolated values to a color list) by the equation shown in python below:
 
-$val = A_0+\frac{A_n-A_0}{n-1}$
+$y = A_0+\frac{A_x-A_0}{x-1}$
 
-Note that this is done 3 times, one for each color. In our case, for the color red, we have $A_0=255$, $A_n=0$, and $n=10$.
+Note that this is done 3 times, one for each color. In our case, for the color red, we have $A_0=255$, $A_x=0$, and $x=10$.
 
 The result for the interpolation with 10 values (along with their hexcode counterparts) are shown below:
 
